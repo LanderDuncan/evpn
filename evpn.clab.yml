@@ -1,0 +1,36 @@
+name: evpn
+topology:
+  kinds:
+    ceos:
+      image: ceos:4.34.2F
+    linux:
+      image: vrnetlab/canonical_ubuntu:jammy
+  nodes:
+    leaf1:
+      kind: ceos
+    leaf2:
+      kind: ceos
+    leaf3:
+      kind: ceos
+    leaf4:
+      kind: ceos
+    spine1:
+      kind: ceos
+    spine2:
+      kind: ceos
+    host1:
+      kind: linux
+    host2:
+      kind: linux
+  links:
+    - endpoints: ["leaf1:eth11", "spine1:eth1"]
+    - endpoints: ["leaf1:eth12", "spine2:eth1"]
+    - endpoints: ["leaf2:eth11", "spine1:eth2"]
+    - endpoints: ["leaf2:eth12", "spine2:eth2"]
+    - endpoints: ["leaf3:eth11", "spine1:eth3"]
+    - endpoints: ["leaf3:eth12", "spine2:eth3"]
+    - endpoints: ["leaf4:eth11", "spine1:eth4"]
+    - endpoints: ["leaf4:eth12", "spine2:eth4"]
+
+    - endpoints: ["leaf1:eth1","host1:eth1"]
+    - endpoints: ["leaf2:eth1","host2:eth1"]
