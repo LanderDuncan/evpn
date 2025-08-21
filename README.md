@@ -1,4 +1,13 @@
+# Overview
+
+This repository demonstrates an EVPN network using Arista EOS devices in a Containerlab topology. It includes example configurations for each network device, detailed explanations for each configuration section, and diagrams to illustrate the underlay, control plane, and VTEP usage. The setup is designed to help users understand how EVPN works in a lab environment, with step-by-step guides for both the network and host configurations.
+
+
 # EVPN Configuration Guide
+
+## Underlay Diagram
+
+![Underlay Diagram](pictures/evpn(1)-ebgp%20underlay.webp)
 
 ## Leaf 1 Underlay Explanation
 
@@ -119,9 +128,9 @@ router bgp 65000
 
 The underlay configuration for the spine node is nearly identical to the leaf node. This is expected, since every node is functioning almost identically in the underlay (we are just doing routing). The only real differences are more connections, since we are downlinking to the four leaves, and different IP values (almost by definition).
 
-## Underlay Diagram
+## Control Plane Diagram
 
-![Underlay Diagram](pictures/evpn(1)-ebgp%20underlay.webp)
+![Control Plane Diagram](pictures/evpn(1)-evpn%20control%20plane.webp)
 
 ## Leaf 1 EVPN Control Plane Explanation
 
@@ -209,9 +218,9 @@ $$E = \binom{n}{2} = \frac{n(n-1)}{2}$$
 
 To prevent this we use the spines as an aggregation layer for the various routes we will be sending, which then passes it along to the VTEPs that actually use them. In fancy terms this is called a route reflector. The `neighbor evpn next-hop-unchanged` will help with this role so all VTEPs will receive packets with the source IP of the other VTEP.
 
-## Control Plane Diagram
+## VTEP Usage Diagram
 
-![Control Plane Diagram](pictures/evpn(1)-evpn%20control%20plane.webp)
+![VTEP Usage Diagram](pictures/evpn(1)-VTEPs.webp)
 
 ## Leaf 1 VTEP Usage Explanation
 
@@ -273,6 +282,3 @@ ip link set eth1 up
 ip route add 10.11.11.0/24 via 10.12.12.1
 ```
 
-## VTEP Usage Diagram
-
-![VTEP Usage Diagram](pictures/evpn(1)-VTEPs.webp)
