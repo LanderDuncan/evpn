@@ -7,7 +7,7 @@ This repository demonstrates an EVPN network using Arista EOS devices in a Conta
 
 ## Underlay Diagram
 
-![Underlay Diagram](pictures/evpn(1)-ebgp%20underlay.webp)
+![Underlay Diagram](diagrams/evpn(1)-ebgp%20underlay.webp)
 
 ## Leaf 1 Underlay Explanation
 
@@ -130,7 +130,7 @@ The underlay configuration for the spine node is nearly identical to the leaf no
 
 ## Control Plane Diagram
 
-![Control Plane Diagram](pictures/evpn(1)-evpn%20control%20plane.webp)
+![Control Plane Diagram](diagrams/evpn(1)-evpn%20control%20plane.webp)
 
 ## Leaf 1 EVPN Control Plane Explanation
 
@@ -220,7 +220,7 @@ To prevent this we use the spines as an aggregation layer for the various routes
 
 ## VTEP Usage Diagram
 
-![VTEP Usage Diagram](pictures/evpn(1)-VTEPs.webp)
+![VTEP Usage Diagram](diagrams/evpn(1)-VTEPs.webp)
 
 ## Leaf 1 VTEP Usage Explanation
 
